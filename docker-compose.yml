@@ -17,15 +17,24 @@ services:
       context: app
     ports:
       - "5000:5000"
+    networks:
+      - backend
   app2:
     container_name: app2
     build:
       context: app
     ports:
       - "5001:5001"
+    networks:
+      - backend
   app3:
     container_name: app3
     build:
       context: app
     ports:
       - "5002:5002"
+    networks:
+      - backend
+networks:
+  backend:
+    driver: bridge
